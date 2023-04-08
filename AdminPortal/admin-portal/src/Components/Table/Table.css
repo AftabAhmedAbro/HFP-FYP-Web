@@ -1,0 +1,29 @@
+.Table{
+    color: rgb(29, 80, 148);
+    border-color:  rgb(29, 80, 148);
+    border:solid 1px;
+    border-radius: 30px;
+    padding: 20px;
+    font-size: 0.9em;
+    margin: 25px 0;
+    border-collapse:collapse ;
+}
+.Table thead tr{
+    background-color: rgb(148, 194, 224);
+    color: rgb(41, 94, 155);
+    text-align: left;
+    font-weight: bold;
+}
+.Table th,
+.Table td{
+    padding: 12px 9px;
+}
+.Table tbody tr{
+    color:rgb(30, 72, 119) ;
+    border-bottom:1px solid #77a7c4dd;
+}
+
+.Table tbody tr:nth-of-type(even){
+    background-color: rgb(148, 194, 224);
+    
+}

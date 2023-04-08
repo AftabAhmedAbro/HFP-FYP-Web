@@ -1,0 +1,9 @@
+.OrdersMain{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 0rem 3rem
+}
+.OrdersMain>h1{
+    color: rgb(29, 80, 148)
+}

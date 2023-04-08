@@ -1,0 +1,9 @@
+.MainDash{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-left: 3rem;
+}
+.MainDash>h1{
+    color: rgb(29, 80, 148)
+}
