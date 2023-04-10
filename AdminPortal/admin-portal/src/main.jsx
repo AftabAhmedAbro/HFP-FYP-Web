@@ -14,6 +14,7 @@ import Register from "./Pages/Register";
 import Dashboard from "./Pages/Dashboard";
 import Orders from "./Pages/Orders";
 import Transaction from "./Pages/Transaction"
+import Requests from "./Pages/Requests";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
   {
     path: "/transaction",
     element: <Transaction />,
+  },
+  {
+    path: "/requests",
+    element: <Requests/>,
   }
 ]);
 ReactDOM.createRoot(document.getElementById("root")).render(

@@ -1,0 +1,12 @@
+.TransMain{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 0rem 3rem
+}
+.heading1{
+    margin-top: 2rem;
+    align-items: start;
+    justify-content: center;
+    display: flex;
+}

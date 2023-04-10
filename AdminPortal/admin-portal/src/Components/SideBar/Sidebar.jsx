@@ -1,15 +1,54 @@
 import React from "react";
 import "./Sidebar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChartLine, faPowerOff } from "@fortawesome/free-solid-svg-icons";
-import { faClipboardList } from "@fortawesome/free-solid-svg-icons";
-import { faMoneyCheckAlt } from "@fortawesome/free-solid-svg-icons";
-import { faUsers } from "@fortawesome/free-solid-svg-icons";
-import { faCommentDots } from "@fortawesome/free-solid-svg-icons";
+import { faClipboardList,faMoneyCheckAlt,faUsers,faChartLine, faPowerOff,faCommentDots } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
-
+import { SideBarData } from "../Data/Data";
+import { useState } from "react";
 const Sidebar = () => {
-  const navigate = useNavigate();
+
+const [selected, setSelected] = useState()
+
+const navigate = useNavigate();
+const navigationPage=(index)=>{
+if(index==0){
+  return(
+    navigate('/dashboard')
+  )
+
+}
+else if(index==1){
+  return(
+    navigate('/orders')
+  )
+  
+}
+else if(index===2){
+  return(
+    navigate('/transaction')
+  )
+  
+}
+else if(index===3){
+  return(
+    navigate('/requests')
+  )
+  
+}
+else if(index===4){
+  return(
+    navigate('/transaction')
+  )
+  
+}
+else if(index===5){
+  return(
+    navigate('/')
+  )
+  
+}
+}
+
   return (
     <div className="Sidebar">
       <div className="logo">
@@ -20,7 +59,29 @@ const Sidebar = () => {
       </div>
 
       <div className="menu">
+        {SideBarData.map((item,index)=>{
+          return(
+            <div className={selected=== index? 'menuItem active' : 'menuItem' } 
+            key={index}
+            onClick={()=>{
+              setSelected(index)
+              navigationPage(index)
+            }}>
+              <div>
+              <FontAwesomeIcon icon={item.icon}/>
+              </div>
+              <span>
+                {item.name}
+              </span>
+            </div>
+          )
+        })}
+
+
+
+{/* 
         <div className="menuItem active " onClick={()=>{
+          handleButtonClick
           navigate('/dashboard')
         }}>
           <div>
@@ -39,12 +100,13 @@ const Sidebar = () => {
           
         </div>
         <div className="menuItem active" onClick={()=>{
+
           navigate('/transaction')
         }}>
           <div>
             <FontAwesomeIcon icon={faMoneyCheckAlt} />
           </div>
-          <span>Payments</span>
+          <span>Transactions</span>
           
         </div>
         <div className="menuItem active">
@@ -69,7 +131,7 @@ const Sidebar = () => {
           </div>
           <span>Logout</span>
           
-        </div>
+        </div> */}
       </div>
     </div>
   );

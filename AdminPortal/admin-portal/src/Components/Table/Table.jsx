@@ -1,42 +1,7 @@
 import * as React from "react";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
 import './Table.css';
-import shadows from "@mui/material/styles/shadows";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { OrderTablesData } from "../Data/Data";
-// import { makeStyles } from "@mui/material";
-function createData(cName, pName, sType, date,status, cost) {
-  return { cName, pName, sType, date, status, cost };
-}
-
-const rows = [
-  createData("Carla", "Dr.Tim", "Physician", "2 March 2023","Inompleted","Rs." + 500),
-  createData("Yash", "Dr.Deny", "Therapist", "1 March 2023","Completed", "Rs." + 500),
-  createData("Aftab", "Tom", "Pathologist", "1 March 2023","Completed", "Rs." + 500),
-  createData("Imran Khan","Ahmed","Compounder","27 Febuary 2023","Completed","Rs." + 500),
-  createData("Carla", "Dr.Tim", "Physician", "26 Febuary 2023","Completed", "Rs." + 500),
-];
-const myStyle=(status)=>{
-    if(status=== 'Complete')
-    {
-        return{
-            background: 'rgb(145 245 159 / 47%)',
-            color: 'green',
-        }
-    }
-    else if (status==='Incomplete')
-    {   return{
-        background: '#ffadad8f',
-        color:'red', 
-    }
-        
-    }
-}
 
 export default function BasicTable() {
   return (
@@ -65,7 +30,7 @@ export default function BasicTable() {
         <td>{item.sType}</td>
         <td>{item.date}</td>
         <td>{item.cost}</td>
-        <td className="status" style={myStyle(item.status)}>{item.status}</td>
+        <td ><FontAwesomeIcon icon={item.status}/></td>
       </tr>
     )
    })}

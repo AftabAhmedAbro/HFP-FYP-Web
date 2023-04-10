@@ -2,8 +2,13 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    margin: 0rem 3rem
+    margin: 0rem 3rem;
+    height: 100%
 }
-.OrdersMain>h1{
-    color: rgb(29, 80, 148)
+
+.heading1{
+margin-top: 2rem;
+align-items: center;
+/* justify-content: center; */
+display: flex;
 }

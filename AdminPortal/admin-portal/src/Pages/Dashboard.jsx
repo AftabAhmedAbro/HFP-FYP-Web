@@ -1,16 +1,14 @@
 import React from 'react'
-import "../Components/Dashboard.css";
-import Sidebar from '../Components/Sidebar';
-import MainDash from '../Components/Main/MainDash';
+import "../Components/Dashboard/Dashboard.css";
+import Sidebar from '../Components/SideBar/Sidebar';
+import MainDash from '../Components/Dashboard/MainDash';
 import Rightside from '../Components/RightSide/Rightside';
 export default function Dashboard() {
   return (
-    <div className='myDiv'>
-      <div className='Glass'>
+    <div className='myDiv1'>
         <Sidebar/>
         <MainDash/>
         <Rightside/>
-      </div>
     </div>
   )
 }

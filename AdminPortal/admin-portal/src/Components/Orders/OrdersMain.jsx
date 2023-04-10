@@ -4,8 +4,10 @@ import './OrdersMain.css'
 const OrdersMain = () => {
   return (
     <div className="OrdersMain">
-        <h1>Orders</h1>
-        <Table/>
+      <div className='heading1 fixed-top'>
+      <h1>Orders</h1>
+      </div>  
+      <Table/>       
     </div>
   )
 }

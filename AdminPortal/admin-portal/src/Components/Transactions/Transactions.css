@@ -3,6 +3,6 @@
     width: 100vw;
     font-family: 'Inter', sans-serif;
     display: grid;
-    grid-template-columns: 192px auto;
     /* background-color: rgb(233, 248, 248); */
+    grid-template-columns: 192px auto;
 }

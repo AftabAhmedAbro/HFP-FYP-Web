@@ -1,16 +1,13 @@
 import React from 'react'
-import "../Components/Orders/Order.css";
-import Sidebar from '../Components/Sidebar';
-import OrdersMain from '../Components/Orders/OrdersMain';
+import "../Components/Transactions/Transactions.css";
+import Sidebar from '../Components/SideBar/Sidebar'
+import TransMain from '../Components/Transactions/TransMain';
 export default function Transaction() {
   return (
     <div>
        <div className='myDiv'>
-      <div className='Glass'>
         <Sidebar/>
-
-        
-      </div>
+        <TransMain/>        
     </div>
     </div>
   )
