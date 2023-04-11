@@ -1,9 +1,15 @@
 .MainDash{
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    margin-left: 3rem;
+    /* justify-content: space-evenly; */
+    margin: 1rem;
 }
-.MainDash>h1{
-    color: rgb(29, 80, 148)
-}
+.heading1 {
+    margin-top: 2rem;
+    align-items: start;
+    justify-content: center;
+    display: flex;
+  }
+  .Card{
+    border: 1px solid pink;
+  }
