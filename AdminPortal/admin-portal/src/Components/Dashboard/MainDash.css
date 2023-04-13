@@ -1,4 +1,4 @@
-.MainDash{
+.MainDash {
     display: flex;
     flex-direction: column;
     /* justify-content: space-evenly; */
@@ -9,7 +9,8 @@
     align-items: start;
     justify-content: center;
     display: flex;
-  }
-  .Card{
-    border: 1px solid pink;
-  }
+}
+
+.chart-div {
+    padding: 0rem 0.5rem;
+}
