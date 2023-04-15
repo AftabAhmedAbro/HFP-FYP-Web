@@ -1,9 +1,9 @@
-.myDiv1{
-    
+.myDiv1 {
     height: 100vh;
     width: 100vw;
     font-family: 'Inter', sans-serif;
     display: grid;
-    grid-template-columns: 192px auto 20rem;
+    grid-template-columns: 192px auto 15rem;
+    gap: 10px;
     /* background-color: rgb(225, 230, 230); */
 }

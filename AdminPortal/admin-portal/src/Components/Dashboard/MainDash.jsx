@@ -21,6 +21,9 @@ ChartJS.register(
     Tooltip,
     Legend,
 );
+import { BarElement } from 'chart.js';
+import { Bar } from 'react-chartjs-2';
+ChartJS.register(BarElement);
 ChartJS.register(ArcElement, Tooltip, Legend);
 const MainDash = () => {
     return (
@@ -37,12 +40,59 @@ const MainDash = () => {
                     <OrderChart1 />
                 </div>
                 <div className="chart-div">
-                    <OrderChart1 />
+                    <ServicesChart1 />
                 </div>
             </div>
         </div>
     );
 };
+// services Chart function
+function ServicesChart1() {
+    const options = {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+            title: {
+                display: true,
+                text: 'Top services',
+            },
+        },
+    };
+    const labels = [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+    ];
+
+    const data = {
+        labels,
+        datasets: [
+            {
+                label: 'Physician',
+                data: [100, 70, 40, 200, 120, 40, 67],
+                backgroundColor: 'rgba(255, 99, 132, 0.5)',
+            },
+            {
+                label: 'Therapists',
+                data: [20, 30, 29, 50, 84, 29, 32],
+                backgroundColor: 'rgba(53, 162, 235, 0.5)',
+            },
+        ],
+    };
+    return (
+        <div style={{ width: '18rem', height: '12rem', background: '#DFDDDE' }}>
+            <Bar options={options} data={data} />
+        </div>
+    );
+}
+
+//Order chart function
 function OrderChart1() {
     const options = {
         responsive: true,
@@ -69,13 +119,7 @@ function OrderChart1() {
         labels,
         datasets: [
             {
-                label: 'Therapists',
-                data: [69, 32, 89, 50, 33, 33, 100],
-                borderColor: 'rgb(255, 99, 132)',
-                backgroundColor: 'rgba(255, 99, 132, 0.5)',
-            },
-            {
-                label: 'Physicians',
+                label: '# of Orders',
                 data: [100, 70, 200, 150, 333, 229, 400],
                 borderColor: 'rgb(53, 162, 235)',
                 backgroundColor: 'rgba(53, 162, 235, 0.5)',
@@ -84,11 +128,13 @@ function OrderChart1() {
     };
 
     return (
-        <div style={{ width: '24rem', height: '12rem', background: '#DFDDDE' }}>
+        <div style={{ width: '18rem', height: '12rem', background: '#DFDDDE' }}>
             <Line options={options} data={data} />
         </div>
     );
 }
+
+//Transaction chart functions
 function TransactionChart1() {
     const data = {
         labels: ['Successful', 'Pending'],
@@ -120,7 +166,7 @@ function TransactionChart1() {
     };
 
     return (
-        <div style={{ width: '270px', height: '200px', background: '#DFDDDE' }}>
+        <div style={{ width: '210px', height: '200px', background: '#DFDDDE' }}>
             <Pie data={data} options={options} />
         </div>
     );

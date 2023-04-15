@@ -1,40 +1,40 @@
-.Sidebar{
- display: flex;
- flex-direction: column;
- position: relative;
- padding-top: 4rem; 
- transition: all 300ms ease;  
- background-color: rgb(219, 224, 224);
+.Sidebar {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-top: 4rem;
+    transition: all 300ms ease;
+    background-color: rgb(219, 224, 224);
 }
 
-.logo{
+.logo {
     height: 5rem;
     display: flex;
     font-weight: bold;
     font-size: 22px;
-    gap:1rem;
+    gap: 1rem;
     align-items: center;
     justify-content: center;
     height: 0.1%;
 }
-.logo>span{
-    color:rgb(83, 145, 216) ;
+.logo > span {
+    color: rgb(83, 145, 216);
     font-size: 18px;
     margin-left: 12px;
 }
 
-.logo>span>span{
+.logo > span > span {
     color: rgb(29, 80, 148);
 }
 
-.menu{
+.menu {
     margin-top: 4rem;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
 }
 
-.menuItem{
+.menuItem {
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -45,21 +45,20 @@
     font-size: 14px;
     border-radius: 0.7rem;
     width: 10rem;
-    color: rgb(41, 94, 155) ;
+    color: rgb(41, 94, 155);
     font-weight: bold;
 }
-.menuItem:hover{
+.menuItem:hover {
     cursor: pointer;
     background: rgb(29, 80, 148);
     color: rgb(171, 203, 245);
     padding-left: 1rem;
-}   
-
-.active{
-    background: rgb(171, 203, 245);
-    
 }
-.active::before{
+
+.active {
+    background: rgb(171, 203, 245);
+}
+.active::before {
     content: '';
     width: 8px;
     height: 100%;

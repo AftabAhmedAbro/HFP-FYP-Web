@@ -1,85 +1,69 @@
-import React from "react";
-import "./Sidebar.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClipboardList,faMoneyCheckAlt,faUsers,faChartLine, faPowerOff,faCommentDots } from "@fortawesome/free-solid-svg-icons";
-import { useNavigate } from "react-router-dom";
-import { SideBarData } from "../Data/Data";
-import { useState } from "react";
+import React from 'react';
+import './Sidebar.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+    faClipboardList,
+    faMoneyCheckAlt,
+    faUsers,
+    faChartLine,
+    faPowerOff,
+    faCommentDots,
+} from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom';
+import { SideBarData } from '../Data/Data';
+import { useState } from 'react';
 const Sidebar = () => {
+    const [selected, setSelected] = useState();
 
-const [selected, setSelected] = useState()
+    const navigate = useNavigate();
+    const navigationPage = (index) => {
+        if (index == 0) {
+            return navigate('/dashboard');
+        } else if (index == 1) {
+            return navigate('/orders');
+        } else if (index === 2) {
+            return navigate('/transaction');
+        } else if (index === 3) {
+            return navigate('/requests');
+        } else if (index === 4) {
+            return navigate('/transaction');
+        } else if (index === 5) {
+            return navigate('/');
+        }
+    };
 
-const navigate = useNavigate();
-const navigationPage=(index)=>{
-if(index==0){
-  return(
-    navigate('/dashboard')
-  )
-
-}
-else if(index==1){
-  return(
-    navigate('/orders')
-  )
-  
-}
-else if(index===2){
-  return(
-    navigate('/transaction')
-  )
-  
-}
-else if(index===3){
-  return(
-    navigate('/requests')
-  )
-  
-}
-else if(index===4){
-  return(
-    navigate('/transaction')
-  )
-  
-}
-else if(index===5){
-  return(
-    navigate('/')
-  )
-  
-}
-}
-
-  return (
-    <div className="Sidebar">
-      <div className="logo">
-        <img src="" alt="" />
-        <span>
-          Healthcare <span>Freelace</span> Service Platform 
-        </span>
-      </div>
-
-      <div className="menu">
-        {SideBarData.map((item,index)=>{
-          return(
-            <div className={selected=== index? 'menuItem active' : 'menuItem' } 
-            key={index}
-            onClick={()=>{
-              setSelected(index)
-              navigationPage(index)
-            }}>
-              <div>
-              <FontAwesomeIcon icon={item.icon}/>
-              </div>
-              <span>
-                {item.name}
-              </span>
+    return (
+        <div className="Sidebar">
+            <div className="logo">
+                <img src="" alt="" />
+                <span>
+                    Healthcare <span>Freelace</span> Service Platform
+                </span>
             </div>
-          )
-        })}
 
+            <div className="menu">
+                {SideBarData.map((item, index) => {
+                    return (
+                        <div
+                            className={
+                                selected === index
+                                    ? 'menuItem active'
+                                    : 'menuItem'
+                            }
+                            key={index}
+                            onClick={() => {
+                                setSelected(index);
+                                navigationPage(index);
+                            }}>
+                            <div>
+                                <FontAwesomeIcon icon={item.icon} />
+                            </div>
+                            <span>{item.name}</span>
+                        </div>
+                    );
+                })}
 
-
-{/* 
+                {/* 
         <div className="menuItem active " onClick={()=>{
           handleButtonClick
           navigate('/dashboard')
@@ -132,9 +116,9 @@ else if(index===5){
           <span>Logout</span>
           
         </div> */}
-      </div>
-    </div>
-  );
+            </div>
+        </div>
+    );
 };
 
 export default Sidebar;

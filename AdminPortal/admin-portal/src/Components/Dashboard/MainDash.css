@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     /* justify-content: space-evenly; */
-    margin: 1rem;
+    margin: 0.7rem 0rem;
 }
 .heading1 {
     margin-top: 2rem;
@@ -12,5 +12,5 @@
 }
 
 .chart-div {
-    padding: 0rem 0.5rem;
+    padding: 0rem 1rem;
 }

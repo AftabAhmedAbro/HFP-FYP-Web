@@ -1,9 +1,10 @@
-.Card1{
+.Card1 {
     width: 10rem;
     height: 100px;
     border: rgb(29, 80, 148) 2px solid;
     border-radius: 10px;
 }
-.div1{
-    margin: 1rem 0rem 1.5rem 0rem;
+.div1 {
+    margin: 1rem 0rem 1.5rem 2rem;
+    width: 45rem;
 }
