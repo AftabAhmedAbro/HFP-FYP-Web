@@ -1,4 +1,5 @@
 .Sidebar {
+    position: fixed;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -21,6 +22,7 @@
     color: rgb(83, 145, 216);
     font-size: 18px;
     margin-left: 12px;
+    position: fixed;
 }
 
 .logo > span > span {
@@ -32,6 +34,7 @@
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    position: fixed;
 }
 
 .menuItem {

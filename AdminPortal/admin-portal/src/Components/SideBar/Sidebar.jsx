@@ -26,8 +26,6 @@ const Sidebar = () => {
         } else if (index === 3) {
             return navigate('/requests');
         } else if (index === 4) {
-            return navigate('/transaction');
-        } else if (index === 5) {
             return navigate('/');
         }
     };

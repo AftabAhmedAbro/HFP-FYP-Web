@@ -1,0 +1,36 @@
+.right-side {
+    margin: 0px 0rem;
+}
+.top-Service {
+    margin: 5px 5px 0px 5px;
+    background-color: #dfddde;
+    width: 14rem;
+    padding: 6px 6px 4px 6px;
+}
+
+.head1 {
+    margin-top: 10px;
+    width: 15.35rem;
+    height: 50px;
+    padding: 14px 10px;
+    display: flex;
+    gap: 20px;
+    border: 1px solid;
+}
+.head1 > h5 {
+    font-size: 19px;
+}
+.h1 {
+    font-size: 19px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.icon {
+    color: white;
+    background-color: black;
+    width: 30px;
+    height: 30px;
+    padding: 0.1rem 0.5rem;
+    border-radius: 50%;
+}

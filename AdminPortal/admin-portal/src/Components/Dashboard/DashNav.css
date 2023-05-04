@@ -1,3 +1,18 @@
-.gap{
-    gap: 10px;
+.gap {
+    gap: 15px;
+    /* border: 1px solid; */
+    width: 72rem;
+    background-color: #ececec;
+    color: rgb(41, 94, 155);
+    font-weight: bold;
+}
+
+form {
+    gap: 12px;
+    /* display: flex;
+    justify-content: flex-end;
+    align-items: end; */
+}
+h4 {
+    margin-top: 5px;
 }

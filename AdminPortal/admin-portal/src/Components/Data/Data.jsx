@@ -24,7 +24,7 @@ export const CardsData = [
     {
         discription: 'Requests',
         value: 30,
-        icon: faUsers
+        icon: faUsers,
     },
 ];
 
@@ -75,6 +75,35 @@ export const OrderTablesData = [
         cost: 'Rs.' + 500,
     },
 ];
+export const RecentOrderTablesData = [
+    {
+        id: 1,
+        cName: 'Carla',
+        pName: 'Dr. Tim',
+        sType: 'Physician',
+        date: '2 March 2023',
+        status: faSpinner,
+        cost: 'Rs.' + 500,
+    },
+    {
+        id: 2,
+        cName: 'Yash',
+        pName: 'Dr. Deny',
+        sType: 'Therapist',
+        date: '1 March 2023',
+        status: faCheckCircle,
+        cost: 'Rs.' + 500,
+    },
+    {
+        id: 3,
+        cName: 'Aftab',
+        pName: 'Tom',
+        sType: 'Pathologist',
+        date: '1 March 2023',
+        status: faCheckCircle,
+        cost: 'Rs.' + 500,
+    },
+];
 
 export const SideBarData = [
     {
@@ -92,10 +121,6 @@ export const SideBarData = [
     {
         icon: faUsers,
         name: 'Requests',
-    },
-    {
-        icon: faCommentDots,
-        name: 'Messages',
     },
     {
         icon: faPowerOff,
@@ -193,5 +218,19 @@ export const RequestTableData = [
         email: 'yashfeen@gmail.com',
         address: 'H #12 Ayub Gate Sukkur',
         contact: '03XX-XXXXXXX',
+    },
+];
+export const TopServices = [
+    {
+        rank: '#1',
+        service: 'Physicians',
+    },
+    {
+        rank: '#2',
+        service: 'Therapists',
+    },
+    {
+        rank: '#3',
+        service: 'Pathologists',
     },
 ];

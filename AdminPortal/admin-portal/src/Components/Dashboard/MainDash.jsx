@@ -2,6 +2,8 @@ import React from 'react';
 import './MainDash.css';
 import Cards from '../Cards/Cards';
 import DashNav from './DashNav';
+import RecentOrders from './RecentOrders';
+import Rightside from '../RightSide/Rightside';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
 import {
@@ -27,20 +29,30 @@ ChartJS.register(BarElement);
 ChartJS.register(ArcElement, Tooltip, Legend);
 const MainDash = () => {
     return (
-        <div className="MainDash">
+        <div>
             <div>
                 <DashNav />
-                <Cards />
             </div>
-            <div className="flex">
-                <div className="chart-div">
-                    <TransactionChart1 />
+            <div class="flex-container">
+                <div class="flex-item1">
+                    <Cards />
+                    <div className="flex">
+                        <div className="chart-div">
+                            <TransactionChart1 />
+                        </div>
+                        <div className="chart-div">
+                            <OrderChart1 />
+                        </div>
+                        <div className="chart-div">
+                            <ServicesChart1 />
+                        </div>
+                    </div>
+                    <div>
+                        <RecentOrders />
+                    </div>
                 </div>
-                <div className="chart-div">
-                    <OrderChart1 />
-                </div>
-                <div className="chart-div">
-                    <ServicesChart1 />
+                <div class="flex-item2">
+                    <Rightside />
                 </div>
             </div>
         </div>
@@ -60,6 +72,7 @@ function ServicesChart1() {
             },
         },
     };
+
     const labels = [
         'January',
         'February',

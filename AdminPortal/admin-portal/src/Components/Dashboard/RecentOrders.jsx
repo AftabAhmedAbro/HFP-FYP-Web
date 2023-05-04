@@ -1,32 +1,33 @@
 import React from 'react';
+import { RecentOrderTablesData } from '../Data/Data';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import './TransactionTable.css';
-import { TransactionTableData } from '../Data/Data';
-const TransactionTable = () => {
+import './RecentOrders.css';
+export default function RecentOrders() {
     return (
         <div className="Table">
+            <div className="rctOrders">Recent Orders</div>
             <table className="table">
                 <thead>
                     <tr>
-                        <th scope="col">#id</th>
-                        <th scope="col">Sender</th>
-                        <th scope="col">Recipient</th>
-                        <th scope="col">Service</th>
+                        <th scope="col">#</th>
+                        <th scope="col">Service Consumer</th>
+                        <th scope="col">Service Provider</th>
+                        <th scope="col">Service Type</th>
                         <th scope="col">Date</th>
-                        <th scope="col">Amount</th>
+                        <th scope="col">Cost</th>
                         <th scope="col">Status</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {TransactionTableData.map((item, index) => {
+                    {RecentOrderTablesData.map((item, index) => {
                         return (
                             <tr>
-                                <th>{item.id}</th>
-                                <td>{item.sender}</td>
-                                <td>{item.recipient}</td>
-                                <td>{item.service}</td>
+                                <td>{item.id}</td>
+                                <td>{item.cName}</td>
+                                <td>{item.pName}</td>
+                                <td>{item.sType}</td>
                                 <td>{item.date}</td>
-                                <td>{item.amount}</td>
+                                <td>{item.cost}</td>
                                 <td>
                                     <FontAwesomeIcon icon={item.status} />
                                 </td>
@@ -37,6 +38,4 @@ const TransactionTable = () => {
             </table>
         </div>
     );
-};
-
-export default TransactionTable;
+}

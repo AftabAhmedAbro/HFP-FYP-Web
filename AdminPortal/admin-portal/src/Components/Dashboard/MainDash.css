@@ -1,6 +1,6 @@
 .MainDash {
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
     /* justify-content: space-evenly; */
     margin: 0.7rem 0rem;
 }
@@ -12,5 +12,27 @@
 }
 
 .chart-div {
-    padding: 0rem 1rem;
+    padding: 0rem 1.5rem;
+}
+.main-part {
+    background-color: yellow;
+    width: 56.5rem;
+}
+
+.right-part {
+    background-color: pink;
+}
+
+.flex-container {
+    display: flex;
+}
+
+.flex-item1 {
+    width: 57rem;
+    /* background-color: blue; */
+}
+
+.flex-item2 {
+    width: 15rem;
+    /* background-color: purple; */
 }
