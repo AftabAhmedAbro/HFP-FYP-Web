@@ -15,7 +15,7 @@ import Dashboard from './Pages/Dashboard';
 import Orders from './Pages/Orders';
 import Transaction from './Pages/Transaction';
 import Requests from './Pages/Requests';
-import Profile from './Pages/Profile';
+
 import ProfileForm from './Pages/ProfileForm';
 const router = createBrowserRouter([
     {
@@ -42,10 +42,7 @@ const router = createBrowserRouter([
         path: '/requests',
         element: <Requests />,
     },
-    {
-        path: '/profile',
-        element: <Profile />,
-    },
+
     {
         path: '/profileform',
         element: <ProfileForm />,
