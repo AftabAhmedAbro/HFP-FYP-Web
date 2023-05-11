@@ -1,0 +1,27 @@
+.container {
+    height: 500px;
+    width: 900px;
+}
+.row {
+    padding: 12px 0px 0px 0px;
+    /* border-bottom: 1px solid #eee; */
+}
+.card1 {
+    width: 15rem;
+    height: 13rem;
+}
+
+.card2 {
+    width: 33rem;
+    height: 14rem;
+    font-size: 1rem;
+    padding: 0px 5px;
+    margin-left: 5rem;
+}
+.card3 {
+    font-size: 1.2rem;
+    width: 850px;
+}
+.card3 > div {
+    /* font-size: 0.9rem; */
+}

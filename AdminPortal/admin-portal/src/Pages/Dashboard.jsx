@@ -10,7 +10,6 @@ export default function Dashboard() {
         <div className="myDiv1">
             <Sidebar />
             <MainDash />
-            {/* <Rightside /> */}
         </div>
     );
 }

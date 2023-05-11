@@ -1,7 +1,7 @@
 .gap {
     gap: 15px;
     /* border: 1px solid; */
-    width: 72rem;
+    width: 80rem;
     background-color: #ececec;
     color: rgb(41, 94, 155);
     font-weight: bold;
@@ -15,4 +15,7 @@ form {
 }
 h4 {
     margin-top: 5px;
+}
+.custom-modal {
+    width: 10rem;
 }

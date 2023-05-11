@@ -6,7 +6,7 @@ export default function RecentOrders() {
     return (
         <div className="Table">
             <div className="rctOrders">Recent Orders</div>
-            <table className="table">
+            <table className="table1">
                 <thead>
                     <tr>
                         <th scope="col">#</th>

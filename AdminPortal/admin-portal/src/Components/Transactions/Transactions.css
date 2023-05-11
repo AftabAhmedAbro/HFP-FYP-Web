@@ -1,8 +1,8 @@
-.myDiv {
+.transactionDiv {
     height: 100vh;
     width: 100vw;
     font-family: 'Inter', sans-serif;
     display: grid;
     /* background-color: rgb(233, 248, 248); */
-    grid-template-columns: 192px auto;
+    grid-template-columns: 15% 85%;
 }

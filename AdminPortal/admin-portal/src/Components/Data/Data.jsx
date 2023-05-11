@@ -8,6 +8,7 @@ import {
     faCommentDots,
     faCheckCircle,
     faSpinner,
+    faUserEdit,
 } from '@fortawesome/free-solid-svg-icons';
 
 export const CardsData = [
@@ -109,6 +110,10 @@ export const SideBarData = [
     {
         icon: faChartLine,
         name: 'Dashboard',
+    },
+    {
+        icon: faUserEdit,
+        name: 'Edit Profile',
     },
     {
         icon: faClipboardList,

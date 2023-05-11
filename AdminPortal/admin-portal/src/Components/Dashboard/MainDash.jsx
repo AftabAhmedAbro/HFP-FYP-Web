@@ -47,12 +47,14 @@ const MainDash = () => {
                             <ServicesChart1 />
                         </div>
                     </div>
-                    <div>
-                        <RecentOrders />
+                    <div className="flex">
+                        <div>
+                            <RecentOrders />
+                        </div>
+                        <div>
+                            <Rightside />
+                        </div>
                     </div>
-                </div>
-                <div class="flex-item2">
-                    <Rightside />
                 </div>
             </div>
         </div>
@@ -99,7 +101,7 @@ function ServicesChart1() {
         ],
     };
     return (
-        <div style={{ width: '18rem', height: '12rem', background: '#DFDDDE' }}>
+        <div style={{ width: '22rem', height: '15rem', background: '#DFDDDE' }}>
             <Bar options={options} data={data} />
         </div>
     );
@@ -141,7 +143,7 @@ function OrderChart1() {
     };
 
     return (
-        <div style={{ width: '18rem', height: '12rem', background: '#DFDDDE' }}>
+        <div style={{ width: '22rem', height: '15rem', background: '#DFDDDE' }}>
             <Line options={options} data={data} />
         </div>
     );
@@ -179,7 +181,7 @@ function TransactionChart1() {
     };
 
     return (
-        <div style={{ width: '210px', height: '200px', background: '#DFDDDE' }}>
+        <div style={{ width: '20rem', height: '15rem', background: '#DFDDDE' }}>
             <Pie data={data} options={options} />
         </div>
     );

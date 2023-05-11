@@ -20,12 +20,14 @@ const Sidebar = () => {
         if (index == 0) {
             return navigate('/dashboard');
         } else if (index == 1) {
+            return navigate('/profileform');
+        } else if (index == 2) {
             return navigate('/orders');
-        } else if (index === 2) {
-            return navigate('/transaction');
         } else if (index === 3) {
-            return navigate('/requests');
+            return navigate('/transaction');
         } else if (index === 4) {
+            return navigate('/requests');
+        } else if (index === 5) {
             return navigate('/');
         }
     };
