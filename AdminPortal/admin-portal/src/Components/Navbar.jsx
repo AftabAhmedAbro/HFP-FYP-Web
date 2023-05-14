@@ -16,9 +16,9 @@ function Navbar() {
                 <nav className="navbar navbar-expand-lg bg-body-tertiary border border-primary  fixed-top ">
                     <div className="container-fluid">
                         <div className="">
-                            <a className="navbar-brand" href="#">
+                            <Link className="navbar-brand" href="#">
                                 Healthcare Freelance Service Platform
-                            </a>
+                            </Link>
                         </div>
 
                         <button
@@ -44,14 +44,14 @@ function Navbar() {
                                         </button>
                                     </li>
                                     <li className="nav-item dropdown">
-                                        <a
+                                        <Link
                                             className="nav-link dropdown-toggle border border-secondary mx-2"
                                             href="#"
                                             role="button"
                                             data-bs-toggle="dropdown"
                                             aria-expanded="false">
                                             <FontAwesomeIcon icon={faUser} />
-                                        </a>
+                                        </Link>
                                         <ul className="dropdown-menu">
                                             <li>
                                                 <a

@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "firebase": "^9.19.1",
-    "mdb-react-ui-kit": "^6.0.0"
-  }
-}

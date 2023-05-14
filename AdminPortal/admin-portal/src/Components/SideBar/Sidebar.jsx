@@ -1,5 +1,6 @@
 import React from 'react';
 import './Sidebar.css';
+import { signOut } from 'firebase/auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faClipboardList,
@@ -12,6 +13,7 @@ import {
 import { useNavigate } from 'react-router-dom';
 import { SideBarData } from '../Data/Data';
 import { useState } from 'react';
+import { auth } from '../firebaseAuth';
 const Sidebar = () => {
     const [selected, setSelected] = useState();
 
@@ -28,7 +30,13 @@ const Sidebar = () => {
         } else if (index === 4) {
             return navigate('/requests');
         } else if (index === 5) {
+            // async () => {
+            //     try {
+            //         await signOut(auth);
             return navigate('/');
+            // } catch (err) {
+            //     console.error(err);
+            // }
         }
     };
 
