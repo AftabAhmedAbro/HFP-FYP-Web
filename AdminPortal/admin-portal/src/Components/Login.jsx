@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Login.css';
 import { useNavigate } from 'react-router-dom';
-
+import logo from '../assets/HealthcareLogo.png';
 export default function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -19,6 +19,8 @@ export default function Login() {
     const navigate = useNavigate();
     return (
         <div className="flex">
+            <img src={logo} alt="" width="170px" />
+
             {/* left div htmlFor text */}
             <div className="heading">Healthcare Freelance Service Platform</div>
             {/* right div */}

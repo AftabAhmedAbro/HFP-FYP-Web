@@ -1,7 +1,7 @@
 import React from 'react';
 import { RequestTableData } from '../Data/Data';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import requestData from '../firebase/requests';
 import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons';
 const RequestTable = () => {
     return (
@@ -17,7 +17,7 @@ const RequestTable = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {RequestTableData.map((item, index) => {
+                    {requestData.map((item, index) => {
                         return (
                             <tr>
                                 <th>{item.name}</th>

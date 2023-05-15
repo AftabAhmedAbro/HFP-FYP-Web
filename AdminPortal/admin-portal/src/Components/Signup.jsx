@@ -2,12 +2,15 @@ import React from 'react';
 
 import './Login.css';
 import { Link } from 'react-router-dom';
+import logo from '../assets/HealthcareLogo.png';
 
 export default function Signup() {
     return (
         <>
             <div className="flex">
                 {/* <div class="col-lg-6 col-md-4 col-sm-3"> */}
+                <img src={logo} alt="" width="170px" />
+
                 {/* left div for text */}
                 <div className="heading">
                     Healthcare Freelance Service Platform
