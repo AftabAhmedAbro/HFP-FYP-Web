@@ -16,6 +16,7 @@ function ProfileFormMain() {
                                     type="text"
                                     className="form-control"
                                     id="name"
+                                    value="Yashfeen Mirza"
                                 />
                             </div>
                             <div className="form-group">
@@ -24,6 +25,7 @@ function ProfileFormMain() {
                                     type="text"
                                     className="form-control"
                                     id="email"
+                                    value="yashfeenmirza93@gmail.com"
                                 />
                             </div>
                             <div className="form-group">
@@ -32,6 +34,7 @@ function ProfileFormMain() {
                                     type="password"
                                     className="form-control"
                                     id="password"
+                                    value="shdbjsbjdsk"
                                 />
                             </div>
                             <div className="form-group">
@@ -40,6 +43,7 @@ function ProfileFormMain() {
                                     type="text"
                                     className="form-control"
                                     id="contact"
+                                    value="03223676099"
                                 />
                             </div>
 

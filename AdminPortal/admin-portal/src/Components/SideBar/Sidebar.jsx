@@ -1,7 +1,7 @@
 import React from 'react';
 import './Sidebar.css';
-import { signOut } from 'firebase/auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { getAuth, signOut } from 'firebase/auth';
 import {
     faClipboardList,
     faMoneyCheckAlt,
@@ -16,7 +16,7 @@ import { useState } from 'react';
 import { auth } from '../firebaseAuth';
 const Sidebar = () => {
     const [selected, setSelected] = useState();
-
+    const auth = getAuth();
     const navigate = useNavigate();
     const navigationPage = (index) => {
         if (index == 0) {
@@ -30,13 +30,14 @@ const Sidebar = () => {
         } else if (index === 4) {
             return navigate('/requests');
         } else if (index === 5) {
-            // async () => {
-            //     try {
-            //         await signOut(auth);
-            return navigate('/');
-            // } catch (err) {
-            //     console.error(err);
-            // }
+            signOut(auth)
+                .then(() => {
+                    console.log('signOut Successfully');
+                    navigate('/');
+                })
+                .catch((err) => {
+                    console.log('signout unsuccessfull');
+                });
         }
     };
 

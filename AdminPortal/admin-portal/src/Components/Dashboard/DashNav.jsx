@@ -7,7 +7,7 @@ import { ProgressBar } from 'react-bootstrap';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
-const DashNav = () => {
+const DashNav = (props) => {
     const [showModal, setShowModal] = useState(false);
 
     const handleClose = () => setShowModal(false);
@@ -59,7 +59,10 @@ const DashNav = () => {
                         </form>
                     </div>
 
-                    <h5>Hi! Yashfeen Mirza</h5>
+                    <h5>
+                        {/* {props.name} */}
+                        Hi! Yashfeen Mirza
+                    </h5>
                     <div className="icon">
                         <FontAwesomeIcon icon={faUser} />
                     </div>

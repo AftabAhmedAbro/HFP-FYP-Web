@@ -1,55 +1,43 @@
-import * as React from "react";
+import * as React from 'react';
 import './Table.css';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { OrderTablesData } from "../Data/Data";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { OrderTablesData } from '../Data/Data';
 
 export default function BasicTable() {
-  return (
-    <div className="Table">
-      
-      <table className="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Service Consumer</th>
-      <th scope="col">Service Provider</th>
-      <th scope="col">Service Type</th>
-      <th scope="col">Date</th>
-      <th scope="col">Cost</th>
-      <th scope="col">Status</th>
+    return (
+        <div className="Table">
+            <table className="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Service Consumer</th>
+                        <th scope="col">Service Provider</th>
+                        <th scope="col">Service Type</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Cost</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {OrderTablesData.map((item, index) => {
+                        return (
+                            <tr>
+                                <td>{item.id}</td>
+                                <td>{item.cName}</td>
+                                <td>{item.pName}</td>
+                                <td>{item.sType}</td>
+                                <td>{item.date}</td>
+                                <td>{item.cost}</td>
+                                <td>
+                                    <FontAwesomeIcon icon={item.status} />
+                                </td>
+                            </tr>
+                        );
+                    })}
+                </tbody>
+            </table>
 
-    </tr>
-  </thead>
-  <tbody>
-   {OrderTablesData.map((item,index)=>{
-    return(
-      <tr>
-        <td>{item.id}</td>
-        <td>{item.cName}</td>
-        <td>{item.pName}</td>
-        <td>{item.sType}</td>
-        <td>{item.date}</td>
-        <td>{item.cost}</td>
-        <td ><FontAwesomeIcon icon={item.status}/></td>
-      </tr>
-    )
-   })}
-  </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-      {/* <TableContainer component={Paper}>
+            {/* <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
@@ -85,6 +73,6 @@ export default function BasicTable() {
           </TableBody>
         </Table>
       </TableContainer> */}
-    </div>
-  );
+        </div>
+    );
 }

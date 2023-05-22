@@ -50,3 +50,10 @@ body {
 label {
     font-size: 1rem;
 }
+button:disabled {
+    background-color: grey !important;
+}
+.signup-error {
+    color: red;
+    font-size: 15px;
+}

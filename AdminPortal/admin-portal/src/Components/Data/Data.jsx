@@ -14,17 +14,17 @@ import {
 export const CardsData = [
     {
         discription: 'New Orders',
-        value: 14,
+        value: 5,
         icon: faClipboardList,
     },
     {
         discription: 'Transactions',
-        value: 5,
+        value: 2,
         icon: faMoneyCheckAlt,
     },
     {
         discription: 'Requests',
-        value: 30,
+        value: 1,
         icon: faUsers,
     },
 ];

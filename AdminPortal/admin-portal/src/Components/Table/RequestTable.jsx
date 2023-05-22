@@ -1,9 +1,14 @@
 import React from 'react';
-import { RequestTableData } from '../Data/Data';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import requestData from '../firebase/requests';
-import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons';
+import {
+    faCheck,
+    faTimes,
+    faDownload,
+} from '@fortawesome/free-solid-svg-icons';
 const RequestTable = () => {
+    console.log(requestData);
     return (
         <div className="Table">
             <table className="table">
@@ -13,6 +18,7 @@ const RequestTable = () => {
                         <th scope="col">Email</th>
                         <th scope="col">Contact</th>
                         <th scope="col">Address</th>
+                        <th scope="col">Document</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -24,6 +30,12 @@ const RequestTable = () => {
                                 <th>{item.email}</th>
                                 <th>{item.contact}</th>
                                 <th>{item.address}</th>
+                                <th>
+                                    <button className="btn btn-primary mx-2">
+                                        <FontAwesomeIcon icon={faDownload} />
+                                    </button>
+                                </th>
+
                                 <th>
                                     <button className="btn btn-success mx-2">
                                         <FontAwesomeIcon

@@ -3,7 +3,7 @@ import Navbar from '../Components/Navbar';
 import Login from '../Components/Login';
 import Footer from '../Components/Footer';
 
-const Home = () => {
+const Home = (props) => {
     return (
         <>
             <Navbar />

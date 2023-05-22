@@ -1,22 +1,44 @@
 import { auth } from './firebaseAuth';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import {
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    updateProfile,
+} from 'firebase/auth';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Login.css';
 import { useNavigate } from 'react-router-dom';
 import logo from '../assets/HealthcareLogo.png';
 export default function Login() {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-
-    const signIn = async () => {
-        try {
-            await createUserWithEmailAndPassword(auth, email, password);
-        } catch (err) {
-            console.error(err);
-        }
-    };
+    const [loginButtonDisabled, setLoginButtonDisabled] = useState(false);
     const navigate = useNavigate();
+    const [errorMsg, setErrorMsg] = useState('');
+    const [values, setValues] = useState({
+        email: '',
+        password: '',
+    });
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log(values);
+        setLoginButtonDisabled(true);
+        signInWithEmailAndPassword(auth, values.email, values.password)
+            .then(async (res) => {
+                setLoginButtonDisabled(false);
+                setErrorMsg('Successfully Login');
+                const user = res.user;
+                console.log(user);
+                await updateProfile(user, {
+                    displayName: values.name,
+                });
+                navigate('/dashboard', { state: { displayName: values.name } });
+            })
+            .catch((err) => {
+                setLoginButtonDisabled(false);
+                setErrorMsg(err.message);
+            });
+    };
+
     return (
         <div className="flex">
             <img src={logo} alt="" width="170px" />
@@ -38,7 +60,12 @@ export default function Login() {
                             className="form-control"
                             type="email"
                             id="email"
-                            onChange={(e) => setEmail(e.target.value)}
+                            onChange={(event) =>
+                                setValues((prev) => ({
+                                    ...prev,
+                                    email: event.target.value,
+                                }))
+                            }
                             required
                         />
                     </div>
@@ -52,7 +79,12 @@ export default function Login() {
                             className="form-control"
                             type="password"
                             id="password"
-                            onChange={(e) => setPassword(e.target.value)}
+                            onChange={(event) =>
+                                setValues((prev) => ({
+                                    ...prev,
+                                    password: event.target.value,
+                                }))
+                            }
                             required
                         />
                     </div>
@@ -64,14 +96,11 @@ export default function Login() {
               navigate('/dashboard')
             }}
           /> */}
+                    <div className="signup-error">{errorMsg}</div>
                     <button
                         className="btn btn-success w-100"
-                        onClick={
-                            () => {
-                                navigate('/dashboard');
-                            }
-                            // signIn
-                        }>
+                        onClick={handleSubmit}
+                        disabled={loginButtonDisabled}>
                         Log In
                     </button>
                     <br />
