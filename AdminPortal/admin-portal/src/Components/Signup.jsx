@@ -28,7 +28,8 @@ export default function Signup() {
                 await updateProfile(user, {
                     displayName: values.name,
                 });
-                navigate('/dashboard');
+                //Move to Login Page
+                navigate('/');
             })
             .catch((err) => {
                 setErrorMsg('Email already exists');
