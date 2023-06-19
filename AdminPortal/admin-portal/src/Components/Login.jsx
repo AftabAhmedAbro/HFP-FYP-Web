@@ -32,6 +32,8 @@ export default function Login() {
                     displayName: values.name,
                 });
                 navigate('/dashboard', { state: { displayName: user.displayName } });
+                const userData = {email:user.email, displayName:user.displayName, phone:user.phoneNumber}
+                sessionStorage.setItem("user", JSON.stringify(userData));
             })
             .catch((err) => {
                 setLoginButtonDisabled(false);

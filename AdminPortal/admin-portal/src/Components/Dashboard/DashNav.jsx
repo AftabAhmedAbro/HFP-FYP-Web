@@ -9,9 +9,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 const DashNav = (props) => {
     
-    const location = useLocation();
-    const username = location?.state?.displayName;
-    console.log(location);
+    // const location = useLocation();
+    // const username = location?.state?.displayName;
+    // console.log(location);
+    const username = JSON.parse(sessionStorage.getItem("user")).displayName;
     const [showModal, setShowModal] = useState(false);
 
     const handleClose = () => setShowModal(false);
