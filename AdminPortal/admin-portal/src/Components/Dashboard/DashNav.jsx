@@ -1,6 +1,6 @@
 import React from 'react';
 import './DashNav.css';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { useState } from 'react';
 import { ProgressBar } from 'react-bootstrap';
@@ -8,6 +8,10 @@ import { ProgressBar } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 const DashNav = (props) => {
+    
+    const location = useLocation();
+    const username = location?.state?.displayName;
+    console.log(location);
     const [showModal, setShowModal] = useState(false);
 
     const handleClose = () => setShowModal(false);
@@ -61,7 +65,7 @@ const DashNav = (props) => {
 
                     <h5>
                         {/* {props.name} */}
-                        Hi! Yashfeen Mirza
+                        Hi! {username}
                     </h5>
                     <div className="icon">
                         <FontAwesomeIcon icon={faUser} />

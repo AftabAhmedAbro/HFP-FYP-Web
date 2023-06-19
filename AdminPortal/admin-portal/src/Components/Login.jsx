@@ -31,7 +31,7 @@ export default function Login() {
                 await updateProfile(user, {
                     displayName: values.name,
                 });
-                navigate('/dashboard', { state: { displayName: values.name } });
+                navigate('/dashboard', { state: { displayName: user.displayName } });
             })
             .catch((err) => {
                 setLoginButtonDisabled(false);
