@@ -1,9 +1,22 @@
 import * as React from 'react';
+import { useEffect, useState } from 'react';
 import './Table.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { OrderTablesData } from '../Data/Data';
+// import { OrderTablesData } from '../Data/Data';
+import { getOrders } from '../firebase/users';
+import { faCheckCircle, faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 export default function BasicTable() {
+  const [orderTablesData, setOrderTablesData] = useState([]);
+
+  useEffect(function(){
+    getOrders(function(orders){
+      console.log(orders);
+      setOrderTablesData(orders);
+    });
+    
+  }, []);
+
     return (
         <div className="Table">
             <table className="table">
@@ -19,17 +32,19 @@ export default function BasicTable() {
                     </tr>
                 </thead>
                 <tbody>
-                    {OrderTablesData.map((item, index) => {
+                    {orderTablesData.map((item, index) => {
                         return (
-                            <tr>
-                                <td>{item.id}</td>
+                            <tr key={index}>
+                                <td>{index}</td>
                                 <td>{item.cName}</td>
                                 <td>{item.pName}</td>
                                 <td>{item.sType}</td>
                                 <td>{item.date}</td>
                                 <td>{item.cost}</td>
                                 <td>
-                                    <FontAwesomeIcon icon={item.status} />
+                                  {
+                                    item.status==='completed'? <FontAwesomeIcon icon={faCheckCircle} />: <FontAwesomeIcon icon={faSpinner} />
+                                  }
                                 </td>
                             </tr>
                         );

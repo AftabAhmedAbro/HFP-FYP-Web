@@ -1,6 +1,6 @@
-import { doc, setDoc} from 'firebase/firestore';
+import { collection, doc, setDoc, getDocs} from 'firebase/firestore';
 import {db, storage} from '../firebaseAuth';
-import { getDownloadURL, ref, uploadBytes, uploadBytesResumable } from 'firebase/storage';
+import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
 
 export const saveProfile = async(data, email, setLoading)=>{
     setLoading(true);
@@ -26,8 +26,15 @@ export const saveProfile = async(data, email, setLoading)=>{
             
         });
     });
-    
-    
+}
 
-
+export const getOrders = async (setOrders)=>{
+    const ordersRef = collection(db, "orders");
+    const querySnapshot = await getDocs(ordersRef);
+    const ordersList = [];
+    querySnapshot.forEach((doc) => {
+        var data = doc.data();
+        ordersList.push(data);
+    });
+    setOrders(ordersList);
 }
