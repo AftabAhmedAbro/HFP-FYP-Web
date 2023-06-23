@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './ProfileFormMain.css';
+import { saveProfile } from '../firebase/users';
 function ProfileFormMain() {
     
     const [profileData, setProfileData] = useState({
@@ -9,8 +10,8 @@ function ProfileFormMain() {
         contact:''
 
     })
+    const [loading, setLoading] = useState(false);
     const handleChange = (e)=>{
-        console.log(e);
         const key = e.target.name;
         const value = e.target.value;
         setProfileData({...profileData, [key]:value})
@@ -18,7 +19,8 @@ function ProfileFormMain() {
 
     const updateData = (e)=>{
         e.preventDefault();
-        console.log(profileData);
+        const userData = JSON.parse(sessionStorage.getItem("user"));
+        saveProfile(profileData, userData.email, setLoading);
     }
     return (
         <div className="main-container">
@@ -53,7 +55,7 @@ function ProfileFormMain() {
                                     type="text"
                                     className="form-control"
                                     id="bus_id"
-                                    name='bussiness_id'
+                                    name='busines_id'
                                     value={profileData.busines_id}
                                     onChange={handleChange}
                                 />
@@ -80,9 +82,9 @@ function ProfileFormMain() {
                                     onChange={handleChange}
                                 />
                             </div>
-
-                            <button type="submit" className="btn btn-primary" onClick={updateData}>
-                                Update Info
+                        
+                            <button type="submit" className="btn btn-primary" onClick={updateData} disabled={loading}>
+                                {loading?"Updating Info...":"Update Info"}
                             </button>
                         </form>
                     </div>
