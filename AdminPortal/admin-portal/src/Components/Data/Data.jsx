@@ -111,10 +111,7 @@ export const SideBarData = [
         icon: faChartLine,
         name: 'Dashboard',
     },
-    {
-        icon: faUserEdit,
-        name: 'Edit Profile',
-    },
+
     {
         icon: faClipboardList,
         name: 'Orders',
@@ -126,10 +123,6 @@ export const SideBarData = [
     {
         icon: faUsers,
         name: 'Requests',
-    },
-    {
-        icon: faPowerOff,
-        name: 'Logout',
     },
 ];
 

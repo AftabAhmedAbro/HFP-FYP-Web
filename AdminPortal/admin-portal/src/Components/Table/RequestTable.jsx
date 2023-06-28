@@ -22,6 +22,11 @@ const RequestTable = () => {
         setTableData(updatedData);
     };
 
+    const handleVerifyClick = () => {
+        const websiteUrl = 'https://pmdc.pk/'; // Replace with your desired website URL
+        window.open(websiteUrl, '_blank');
+    };
+
     return (
         <div className="Table">
             <table className="table">
@@ -32,9 +37,11 @@ const RequestTable = () => {
                         <th scope="col">Contact</th>
                         <th scope="col">Address</th>
                         <th scope="col">Document</th>
+                        <th scope="col">Verify Credentials</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
+
                 <tbody>
                     {tableData.map((item, index) => {
                         return (
@@ -48,7 +55,16 @@ const RequestTable = () => {
                                         <FontAwesomeIcon icon={faDownload} />
                                     </button>
                                 </th>
-
+                                <th>
+                                    <button
+                                        className="btn btn-primary"
+                                        style={{
+                                            width: '100px',
+                                        }}
+                                        onClick={handleVerifyClick}>
+                                        Verify
+                                    </button>
+                                </th>
                                 <th>
                                     <button
                                         className="btn btn-success mx-2"
