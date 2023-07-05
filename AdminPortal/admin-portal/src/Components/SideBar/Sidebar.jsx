@@ -32,11 +32,15 @@ const Sidebar = () => {
 
     return (
         <div className="Sidebar">
+
+        <span>
+      
+          Healthcare <span>Freelace</span> Service Platform
+
+        </span>
+        
             <div className="logo">
-                <img src="" alt="" />
-                <span>
-                    Healthcare <span>Freelace</span> Service Platform
-                </span>
+                <img src='' alt="" />
             </div>
 
             <div className="menu">
