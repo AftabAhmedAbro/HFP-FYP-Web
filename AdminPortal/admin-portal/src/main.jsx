@@ -18,6 +18,7 @@ import Transaction from './Pages/Transaction';
 import Requests from './Pages/Requests';
 
 import ProfileForm from './Pages/ProfileForm';
+import Approved from './Pages/Approved';
 const router = createBrowserRouter([
     {
         path: '/',
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
         path: '/profileform',
         element: <ProfileForm />,
     },
+    {
+        path: '/approved',
+        element: <Approved/>
+    }
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(
     // <React.StrictMode>
