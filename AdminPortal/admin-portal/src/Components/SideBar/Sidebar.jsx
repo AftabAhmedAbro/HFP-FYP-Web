@@ -22,25 +22,34 @@ const Sidebar = () => {
         if (index == 0) {
             return navigate('/dashboard');
         } else if (index == 1) {
+            return navigate('/profileform');
+        } else if (index == 2) {
             return navigate('/orders');
-        } else if (index === 2) {
-            return navigate('/transaction');
         } else if (index === 3) {
+            return navigate('/transaction');
+        } else if (index === 4) {
             return navigate('/requests');
+        } else if (index === 5){
+            return navigate('/approved');
+         } else if (index === 6) {
+            signOut(auth)
+                .then(() => {
+                    console.log('signOut Successfully');
+                    navigate('/');
+                })
+                .catch((err) => {
+                    console.log('signout unsuccessfull');
+                });
         }
     };
 
     return (
         <div className="Sidebar">
-
-        <span>
-      
-          Healthcare <span>Freelace</span> Service Platform
-
-        </span>
-        
             <div className="logo">
-                <img src='' alt="" />
+                <img src="" alt="" />
+                <span>
+                    Healthcare <span>Freelace</span> Service Platform
+                </span>
             </div>
 
             <div className="menu">

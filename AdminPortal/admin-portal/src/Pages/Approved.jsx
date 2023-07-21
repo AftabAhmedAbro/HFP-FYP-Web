@@ -3,12 +3,14 @@ import '../Components/Profile-Form/ProfileForm.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Sidebar from '../Components/SideBar/Sidebar';
 import ProfileFormMain from '../Components/Profile-Form/ProfileFormMain';
-function ProfileForm() {
+import ApprovedTable from '../Components/Table/ApprovedTable';
+function Approved() {
     return (
+
         <div className="profile-form">
             <Sidebar />
-            <ProfileFormMain />
+            <ApprovedTable/>
         </div>
     );
 }
-export default ProfileForm;
+export default Approved;

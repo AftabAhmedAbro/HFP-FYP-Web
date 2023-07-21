@@ -1,4 +1,4 @@
-import { collection, doc, setDoc, getDocs} from 'firebase/firestore';
+import { collection, doc, setDoc, getDocs, addDoc} from 'firebase/firestore';
 import {db, storage} from '../firebaseAuth';
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
 
@@ -37,4 +37,22 @@ export const getOrders = async (setOrders)=>{
         ordersList.push(data);
     });
     setOrders(ordersList);
+}
+
+export const setApprovedRecord = async (approved)=>{
+    const docRef = await addDoc(collection(db, "approved"), approved);
+    console.log("Record Approved");
+    console.log("Document written with ID: ", docRef.id);
+}
+
+export const getApprovedRecords = async (setApprovedRecords)=>{
+
+    const appColRef = collection(db, "approved");
+    const querySnapshot = await getDocs(appColRef);
+    const appList = [];
+    querySnapshot.forEach((doc) => {
+        var data = doc.data();
+        appList.push(data);
+    });
+    setApprovedRecords(appList);
 }

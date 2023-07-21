@@ -1,13 +1,10 @@
 .gap {
-    gap: 5px;
-    padding: 5px;
+    gap: 15px;
+    /* border: 1px solid; */
     width: 80rem;
     background-color: #ececec;
     color: rgb(41, 94, 155);
     font-weight: bold;
-    display: flex;
-    justify-content: flex-end;
-    height: 42px;
 }
 
 form {

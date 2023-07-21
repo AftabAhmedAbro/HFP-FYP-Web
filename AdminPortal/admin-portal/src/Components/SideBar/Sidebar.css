@@ -18,14 +18,14 @@
     justify-content: center;
     height: 0.1%;
 }
- span {
+.logo > span {
     color: rgb(83, 145, 216);
-    margin-left: 20px;
-   
+    font-size: 18px;
+    margin-left: 12px;
+    position: fixed;
 }
- span > span {
-    margin-left: 5px;
-    margin-top: 20px;
+
+.logo > span > span {
     color: rgb(29, 80, 148);
 }
 
@@ -56,7 +56,6 @@
     background: rgb(29, 80, 148);
     color: rgb(171, 203, 245);
     padding-left: 1rem;
-    width: fit-content;
 }
 
 .active {
