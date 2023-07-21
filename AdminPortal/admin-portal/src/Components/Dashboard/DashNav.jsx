@@ -8,11 +8,10 @@ import { ProgressBar } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 const DashNav = (props) => {
-    
     // const location = useLocation();
     // const username = location?.state?.displayName;
     // console.log(location);
-    const username = JSON.parse(sessionStorage.getItem("user")).displayName;
+    const username = JSON.parse(sessionStorage.getItem('user')).displayName;
     const [showModal, setShowModal] = useState(false);
 
     const handleClose = () => setShowModal(false);
@@ -48,20 +47,7 @@ const DashNav = (props) => {
                     <div
                         className="collapse navbar-collapse"
                         id="navbarSupportedContent fixed-right">
-                        <form className="form-inline my-2 my-lg-0 flex">
-                            <input
-                                className="form-control mr-sm-2"
-                                type="search"
-                                placeholder="Search"
-                                aria-label="Search"
-                                onClick={() => setModal(true)}
-                            />
-                            <button
-                                className="btn btn-outline-success my-2 my-sm-0"
-                                type="submit">
-                                Search
-                            </button>
-                        </form>
+                        <form className="form-inline my-2 my-lg-0 flex"></form>
                     </div>
 
                     <h5>
