@@ -5,6 +5,7 @@ import { retrieveTransactionData } from '../firebase/transactions';
 
 const TransactionTable = () => {
     const [data, setData] = useState([]);
+    const [selectedRowData, setSelectedRowData] = useState([]); // State to store selected row data
 
     useEffect(() => {
         retrieveTransactionData()
@@ -23,8 +24,9 @@ const TransactionTable = () => {
     }, []);
 
     const handleClick = (id) => {
+        // ... (rest of the function)
         const updatedData = data.map((item) => {
-            if (item.id === id) {
+            if (item.ID === id) {
                 return {
                     ...item,
                     buttonText: 'Sending...',
@@ -39,7 +41,7 @@ const TransactionTable = () => {
         setTimeout(() => {
             setData((prevData) => {
                 const completedData = prevData.map((item) => {
-                    if (item.id === id) {
+                    if (item.ID === id) {
                         return {
                             ...item,
                             buttonText: 'Payment Done',
@@ -51,11 +53,17 @@ const TransactionTable = () => {
                 return completedData;
             });
         }, 2000);
+
+        // Store the selected row data in the selectedRowData state
+        const selectedRow = data.find((item) => item.ID === id);
+        setSelectedRowData(selectedRow);
+        console.log(selectedRowData);
     };
 
     return (
         <div className="Table">
             <table className="table">
+                {/* ... (table headers) */}
                 <thead>
                     <tr>
                         <th scope="col">#id</th>
@@ -68,6 +76,7 @@ const TransactionTable = () => {
                         <th scope="col">Status</th>
                     </tr>
                 </thead>
+
                 <tbody>
                     {data.map((item) => {
                         const date = item.date.toDate(); // Convert Firestore Timestamp to Date
@@ -90,7 +99,7 @@ const TransactionTable = () => {
                                 <td>
                                     <button
                                         className="btn btn-success"
-                                        onClick={() => handleClick(item.id)}
+                                        onClick={() => handleClick(item.ID)}
                                         disabled={item.isButtonDisabled}>
                                         {item.buttonText}
                                     </button>

@@ -7,15 +7,14 @@ import { getOrders } from '../firebase/users';
 import { faCheckCircle, faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 export default function BasicTable() {
-  const [orderTablesData, setOrderTablesData] = useState([]);
+    const [orderTablesData, setOrderTablesData] = useState([]);
 
-  useEffect(function(){
-    getOrders(function(orders){
-      console.log(orders);
-      setOrderTablesData(orders);
-    });
-    
-  }, []);
+    useEffect(function () {
+        getOrders(function (orders) {
+            console.log(orders);
+            setOrderTablesData(orders);
+        });
+    }, []);
 
     return (
         <div className="Table">
@@ -42,9 +41,11 @@ export default function BasicTable() {
                                 <td>{item.date}</td>
                                 <td>{item.cost}</td>
                                 <td>
-                                  {
-                                    item.status==='completed'? <FontAwesomeIcon icon={faCheckCircle} />: <FontAwesomeIcon icon={faSpinner} />
-                                  }
+                                    {item.status === 'completed' ? (
+                                        <FontAwesomeIcon icon={faCheckCircle} />
+                                    ) : (
+                                        <FontAwesomeIcon icon={faSpinner} />
+                                    )}
                                 </td>
                             </tr>
                         );

@@ -4,15 +4,17 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { useState } from 'react';
 import { ProgressBar } from 'react-bootstrap';
+import Dropdown from 'react-bootstrap/Dropdown';
+import { getAuth, signOut } from 'firebase/auth';
+import { auth } from '../firebaseAuth';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 const DashNav = (props) => {
-    
     // const location = useLocation();
     // const username = location?.state?.displayName;
     // console.log(location);
-    const username = JSON.parse(sessionStorage.getItem("user")).displayName;
+    const username = JSON.parse(sessionStorage.getItem('user')).displayName;
     const [showModal, setShowModal] = useState(false);
 
     const handleClose = () => setShowModal(false);
@@ -21,6 +23,16 @@ const DashNav = (props) => {
     const navigate = useNavigate();
     const navigationPage = () => {
         return navigate('/profile');
+    };
+    const funcLogout = () => {
+        signOut(auth)
+            .then(() => {
+                console.log('signOut Successfully');
+                navigate('/');
+            })
+            .catch((err) => {
+                console.log('signout unsuccessfull');
+            });
     };
 
     const [modal, setModal] = useState(false);
@@ -48,29 +60,25 @@ const DashNav = (props) => {
                     <div
                         className="collapse navbar-collapse"
                         id="navbarSupportedContent fixed-right">
-                        <form className="form-inline my-2 my-lg-0 flex">
-                            <input
-                                className="form-control mr-sm-2"
-                                type="search"
-                                placeholder="Search"
-                                aria-label="Search"
-                                onClick={() => setModal(true)}
-                            />
-                            <button
-                                className="btn btn-outline-success my-2 my-sm-0"
-                                type="submit">
-                                Search
-                            </button>
-                        </form>
+                        <form className="form-inline my-2 my-lg-0 flex"></form>
                     </div>
 
                     <h5>
                         {/* {props.name} */}
                         Hi! {username}
                     </h5>
-                    <div className="icon">
+                    {/* <div className="icon">
                         <FontAwesomeIcon icon={faUser} />
-                    </div>
+                    </div> */}
+                    <Dropdown>
+                        <Dropdown.Toggle></Dropdown.Toggle>
+
+                        <Dropdown.Menu>
+                            <Dropdown.Item onClick={funcLogout}>
+                                Logout
+                            </Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
                 </nav>
             </div>
 
