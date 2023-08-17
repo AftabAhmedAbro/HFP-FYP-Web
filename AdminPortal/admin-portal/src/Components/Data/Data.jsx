@@ -9,7 +9,7 @@ import {
     faCheckCircle,
     faSpinner,
     faUserEdit,
-    faBookOpen
+    faBookOpen,
 } from '@fortawesome/free-solid-svg-icons';
 
 export const CardsData = [
@@ -112,10 +112,7 @@ export const SideBarData = [
         icon: faChartLine,
         name: 'Dashboard',
     },
-    {
-        icon: faUserEdit,
-        name: 'Edit Profile',
-    },
+
     {
         icon: faClipboardList,
         name: 'Orders',
@@ -131,10 +128,6 @@ export const SideBarData = [
     {
         icon: faBookOpen,
         name: 'Approved',
-    },
-    {
-        icon: faPowerOff,
-        name: 'Logout',
     },
 ];
 

@@ -13,12 +13,12 @@ const RequestTable = () => {
 
     useEffect(() => {
         setTableData(requestData);
-    }, [])
+    }, []);
 
     const handleApprove = (index) => {
         const approved = tableData[index];
-        const email = JSON.parse(sessionStorage.getItem("user")).email;
-        //Save to approved 
+        const email = JSON.parse(sessionStorage.getItem('user')).email;
+        //Save to approved
         setApprovedRecord(approved);
         const updatedData = [...tableData];
         updatedData.splice(index, 1); // Remove the row at the specified index
@@ -29,6 +29,10 @@ const RequestTable = () => {
         const updatedData = [...tableData];
         updatedData.splice(index, 1); // Remove the row at the specified index
         setTableData(updatedData);
+    };
+    const handleVerifyClick = () => {
+        const websiteUrl = 'https://pmdc.pk/'; // Replace with your desired website URL
+        window.open(websiteUrl, '_blank');
     };
 
     return (
@@ -41,6 +45,7 @@ const RequestTable = () => {
                         <th scope="col">Contact</th>
                         <th scope="col">Address</th>
                         <th scope="col">Document</th>
+                        <th scope="col">Document Varification</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -55,6 +60,17 @@ const RequestTable = () => {
                                 <th>
                                     <button className="btn btn-primary mx-2">
                                         <FontAwesomeIcon icon={faDownload} />
+                                    </button>
+                                </th>
+                                <th>
+                                    <button
+                                        className="btn btn-primary"
+                                        style={{
+                                            width: '100px',
+                                            marginLeft: '25px',
+                                        }}
+                                        onClick={handleVerifyClick}>
+                                        Verify
                                     </button>
                                 </th>
 

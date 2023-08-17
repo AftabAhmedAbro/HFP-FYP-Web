@@ -4,6 +4,9 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { useState } from 'react';
 import { ProgressBar } from 'react-bootstrap';
+import Dropdown from 'react-bootstrap/Dropdown';
+import { getAuth, signOut } from 'firebase/auth';
+import { auth } from '../firebaseAuth';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
@@ -20,6 +23,16 @@ const DashNav = (props) => {
     const navigate = useNavigate();
     const navigationPage = () => {
         return navigate('/profile');
+    };
+    const funcLogout = () => {
+        signOut(auth)
+            .then(() => {
+                console.log('signOut Successfully');
+                navigate('/');
+            })
+            .catch((err) => {
+                console.log('signout unsuccessfull');
+            });
     };
 
     const [modal, setModal] = useState(false);
@@ -54,9 +67,18 @@ const DashNav = (props) => {
                         {/* {props.name} */}
                         Hi! {username}
                     </h5>
-                    <div className="icon">
+                    {/* <div className="icon">
                         <FontAwesomeIcon icon={faUser} />
-                    </div>
+                    </div> */}
+                    <Dropdown>
+                        <Dropdown.Toggle></Dropdown.Toggle>
+
+                        <Dropdown.Menu>
+                            <Dropdown.Item onClick={funcLogout}>
+                                Logout
+                            </Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
                 </nav>
             </div>
 
