@@ -6,30 +6,36 @@ import {
     faTimes,
     faDownload,
 } from '@fortawesome/free-solid-svg-icons';
+export let rowsCounted = 0;
 import { setApprovedRecord } from '../firebase/users';
 
 const RequestTable = () => {
     const [tableData, setTableData] = useState([]);
-
+    const [rowCount, setRowCount] = useState(0); // State to store the row count
+    rowsCounted = rowCount;
     useEffect(() => {
         setTableData(requestData);
+        setRowCount(requestData.length); // Initialize row count when data is fetched
     }, []);
 
     const handleApprove = (index) => {
         const approved = tableData[index];
         const email = JSON.parse(sessionStorage.getItem('user')).email;
-        //Save to approved
+        // Save to approved
         setApprovedRecord(approved);
         const updatedData = [...tableData];
         updatedData.splice(index, 1); // Remove the row at the specified index
         setTableData(updatedData);
+        setRowCount(rowCount - 1); // Update row count when a row is removed
     };
 
     const handleReject = (index) => {
         const updatedData = [...tableData];
         updatedData.splice(index, 1); // Remove the row at the specified index
         setTableData(updatedData);
+        setRowCount(rowCount - 1); // Update row count when a row is removed
     };
+
     const handleVerifyClick = () => {
         const websiteUrl = 'https://pmdc.pk/'; // Replace with your desired website URL
         window.open(websiteUrl, '_blank');

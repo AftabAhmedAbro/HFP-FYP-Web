@@ -13,6 +13,10 @@ import {
     LineElement,
     Title,
 } from 'chart.js';
+import {
+    initialFalseStatusCount,
+    totalTrasactions,
+} from '../Table/TransactionTable';
 import { Line } from 'react-chartjs-2';
 ChartJS.register(
     CategoryScale,
@@ -28,6 +32,8 @@ import { Bar } from 'react-chartjs-2';
 ChartJS.register(BarElement);
 ChartJS.register(ArcElement, Tooltip, Legend);
 const MainDash = () => {
+    console.log(initialFalseStatusCount);
+    console.log(totalTrasactions);
     return (
         <div>
             <div>
@@ -135,7 +141,7 @@ function OrderChart1() {
         datasets: [
             {
                 label: '# of Orders',
-                data: [100, 70, 200, 150, 333, 229, 400],
+                data: [0, 0, 1, 0, 0, 0, 1],
                 borderColor: 'rgb(53, 162, 235)',
                 backgroundColor: 'rgba(53, 162, 235, 0.5)',
             },
@@ -156,7 +162,10 @@ function TransactionChart1() {
         datasets: [
             {
                 label: '# of Votes',
-                data: [19, 12],
+                data: [
+                    initialFalseStatusCount - totalTrasactions,
+                    initialFalseStatusCount,
+                ],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',

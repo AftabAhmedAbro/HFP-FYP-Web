@@ -11,21 +11,23 @@ import {
     faUserEdit,
     faBookOpen,
 } from '@fortawesome/free-solid-svg-icons';
-
+import { inProgressCount } from '../Table/Table';
+import { initialFalseStatusCount } from '../Table/TransactionTable';
+import { rowsCounted } from '../Table/RequestTable';
 export const CardsData = [
     {
         discription: 'New Orders',
-        value: 5,
+        value: inProgressCount,
         icon: faClipboardList,
     },
     {
         discription: 'Transactions',
-        value: 2,
+        value: initialFalseStatusCount,
         icon: faMoneyCheckAlt,
     },
     {
         discription: 'Requests',
-        value: 1,
+        value: rowsCounted,
         icon: faUsers,
     },
 ];

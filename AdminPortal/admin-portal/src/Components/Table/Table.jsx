@@ -4,17 +4,43 @@ import './Table.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { OrderTablesData } from '../Data/Data';
 import { getOrders } from '../firebase/users';
-import { faCheckCircle, faSpinner } from '@fortawesome/free-solid-svg-icons';
-
+import {
+    faCheckCircle,
+    faSpinner,
+    faTimes,
+} from '@fortawesome/free-solid-svg-icons';
+export let inProgressCount = 0;
+export let ordersByMonth = {};
 export default function BasicTable() {
     const [orderTablesData, setOrderTablesData] = useState([]);
 
     useEffect(function () {
         getOrders(function (orders) {
-            console.log(orders);
+            console.warn(orders);
             setOrderTablesData(orders);
         });
     }, []);
+
+    inProgressCount = orderTablesData.filter(
+        (item) => item.status === 'In Progress',
+    ).length;
+    console.log(inProgressCount);
+
+    // Process the orderTablesData array
+    orderTablesData.forEach((item) => {
+        const date = new Date(item.date);
+        const month = date.getMonth(); // Get the month (0-11)
+
+        // If the month entry doesn't exist, initialize it with a count of 1
+        if (!ordersByMonth[month + 1]) {
+            ordersByMonth[month + 1] = 1;
+        } else {
+            // If the month entry exists, increment the count
+            ordersByMonth[month + 1]++;
+        }
+    });
+
+    console.log(ordersByMonth); // This will give you a count of orders for each mon
 
     return (
         <div className="Table">
@@ -34,18 +60,24 @@ export default function BasicTable() {
                     {orderTablesData.map((item, index) => {
                         return (
                             <tr key={index}>
-                                <td>{index}</td>
+                                <td>{item.appointID}</td>
                                 <td>{item.cName}</td>
-                                <td>{item.pName}</td>
+                                <td>{item.doctor}</td>
                                 <td>{item.sType}</td>
-                                <td>{item.date}</td>
+                                <td>{item.date.toDate().toLocaleString()}</td>
+
                                 <td>{item.cost}</td>
                                 <td>
-                                    {item.status === 'completed' ? (
-                                        <FontAwesomeIcon icon={faCheckCircle} />
-                                    ) : (
+                                    <span style={{ marginRight: '5px' }}>
+                                        {item.status}
+                                    </span>
+                                    {item.status === 'process' ? (
                                         <FontAwesomeIcon icon={faSpinner} />
-                                    )}
+                                    ) : item.status === 'completed' ? (
+                                        <FontAwesomeIcon icon={faCheckCircle} />
+                                    ) : item.status === 'cancelled' ? (
+                                        <FontAwesomeIcon icon={faTimes} />
+                                    ) : null}
                                 </td>
                             </tr>
                         );

@@ -19,6 +19,7 @@
     "chart.js": "^4.2.1",
     "firebase": "^9.22.0",
     "framer-motion": "^10.11.2",
+    "n": "^9.1.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.4",
     "react-chartjs-2": "^5.2.0",

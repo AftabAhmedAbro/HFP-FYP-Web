@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './TransactionTable.css';
 import { retrieveTransactionData } from '../firebase/transactions';
-
+export let initialFalseStatusCount = 0;
+export let totalTrasactions = 0;
 const TransactionTable = () => {
     const [data, setData] = useState([]);
     const [selectedRowData, setSelectedRowData] = useState([]); // State to store selected row data
@@ -16,6 +17,17 @@ const TransactionTable = () => {
                     isButtonDisabled: false,
                 }));
                 setData(updatedData);
+
+                // Calculate the initial false status row count
+                initialFalseStatusCount = transactionData.reduce(
+                    (count, item) => {
+                        if (!item.status) {
+                            return count + 1;
+                        }
+                        return count;
+                    },
+                    0,
+                );
             })
             .catch((error) => {
                 console.log('Error retrieving transaction data:', error);
@@ -35,6 +47,7 @@ const TransactionTable = () => {
             }
             return item;
         });
+        console.log(initialFalseStatusCount);
         setData(updatedData);
 
         // Simulating an asynchronous action
@@ -79,6 +92,7 @@ const TransactionTable = () => {
 
                 <tbody>
                     {data.map((item) => {
+                        totalTrasactions = data.length;
                         const date = item.date.toDate(); // Convert Firestore Timestamp to Date
                         const formattedDate = date.toLocaleDateString('en-US'); // Format date as mm/dd/yyyy
                         const r_amount = item.amount;
